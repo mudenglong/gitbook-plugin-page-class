@@ -1,12 +1,12 @@
 var cheerio = require( "cheerio" )
 
-var wrapPageTags = function(page){
+var wrapPageTags = function(page, gitbook){
     var $ = cheerio.load(page.content);
 
     var pageName = page.path.replace('.md','').replace('/','-');
 
-    if(this.options.pluginsConfig['hxc3-page-class'] && this.options.pluginsConfig['hxc3-page-class']['prefixName']) {
-        pageName = this.options.pluginsConfig['hxc3-page-class']['prefixName']+pageName;
+    if(gitbook.options.pluginsConfig['hxc3-page-class'] && gitbook.options.pluginsConfig['hxc3-page-class']['prefixName']) {
+        pageName = gitbook.options.pluginsConfig['hxc3-page-class']['prefixName']+pageName;
     }
     page.content = '<div class="'+pageName+'"">'+$.html()+'</div>';
 
@@ -18,7 +18,7 @@ module.exports = {
     // Map of hooks
     hooks: {
     	'page': function(page){    		
-    		return wrapPageTags(page);
+    		return wrapPageTags(page, this);
     	}
     },
 
