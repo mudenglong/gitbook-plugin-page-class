@@ -5,10 +5,11 @@ var wrapPageTags = function(page, gitbook){
 
     var pageName = page.path.replace('.md','').replace('/','-');
 
-    if(gitbook.options.pluginsConfig['hxc3-page-class'] && gitbook.options.pluginsConfig['hxc3-page-class']['prefixName']) {
+    if(gitbook.options.pluginsConfig['hxc3-page-class']) {
+        var prefixName = gitbook.options.pluginsConfig['hxc3-page-class']['prefixName'] || 'wrap-'
         pageName = gitbook.options.pluginsConfig['hxc3-page-class']['prefixName']+pageName;
     }
-    page.content = '<div class="'+pageName+'"">'+$.html()+'</div>';
+    page.content = '<div class="'+pageName+'">'+$.html()+'</div>';
 
     return page;
 }
