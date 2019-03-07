@@ -1,0 +1,36 @@
+{
+    "name": "gitbook-plugin-page-class",
+    "version": "0.0.1",
+    "description": "This plugin wraps a div with a equivalent class of current page so you can style it accordingly; 给每个页面body标签 添加一个页面名称class名",
+  
+    "gitbook": {
+        "properties": {
+            "myConfigKey": {
+                "type": "string",
+                "default": "it's the default value",
+                "description": "It defines my awesome config!"
+            }
+        }
+    },
+    "dependencies": {
+      "cheerio": "^0.19.0"
+    },
+    "devDependencies": {
+      "gitbook-plugin": "^4.0.0"
+    },
+   
+    "engines": {
+      "gitbook": ">1.x.x"
+    },
+   
+    "homepage": "https://github.com/mudenglong/gitbook-plugin-page-class/",
+    "keywords": [
+      "gitbook",
+      "gitbook:className"
+    ],
+    "main": "index.js",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/mudenglong/gitbook-plugin-page-class/.git"
+    }
+}
