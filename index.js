@@ -4,6 +4,10 @@ var wrapPageTags = function(page){
     var $ = cheerio.load(page.content);
 
     var pageName = page.path.replace('.md','').replace('/','-');
+
+    if(this.options.pluginsConfig['hxc3-page-class'] && this.options.pluginsConfig['hxc3-page-class']['prefixName']) {
+        pageName = this.options.pluginsConfig['hxc3-page-class']['prefixName']+pageName;
+    }
     page.content = '<div class="'+pageName+'"">'+$.html()+'</div>';
 
     return page;
